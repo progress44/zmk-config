@@ -14,3 +14,15 @@
         pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
     };
 };
+
+
+/ {
+    backlight: backlight {
+        compatible = "pwm-backlight";
+        brightness-levels = <0 20 40 60 80 100>;
+        default-brightness-level = <3>;
+        enable-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;  // Replace with your actual GPIO configuration
+        pwms = <&pwm0 0 100000 PWM_POLARITY_NORMAL>;    // Adjust PWM settings as required
+        status = "okay";
+    };
+};
